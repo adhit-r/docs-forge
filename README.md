@@ -21,7 +21,7 @@ Then open the Codex plugin UI, install `Docs Forge`, and start a new chat with t
 Invoke it directly:
 
 ```text
-@docs-forge Document this codebase.
+$docs-forge Document this codebase.
 ```
 
 Or use a natural prompt:
@@ -44,4 +44,4 @@ plugins/docs-forge/skills/docs-forge/SKILL.md
 
 ## License
 
-This repository is currently marked `UNLICENSED` in the plugin manifest. Add a license before encouraging reuse or contributions.
+MIT
