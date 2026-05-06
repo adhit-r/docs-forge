@@ -1,6 +1,6 @@
 ---
 name: docs-forge
-description: Use when the user wants to generate, regenerate, or substantially expand documentation for a codebase. Triggers include "document this project," "create a docs site," "write an API reference," "generate how-to guides," "set up Fumadocs/Docusaurus/Mintlify/Nextra/Starlight/MkDocs," "build product docs," or any request to produce structured developer or product documentation from existing code. Handles engineering docs (architecture, API reference, contributing, deployment) and product docs (how-tos, tutorials, walkthroughs, FAQs). Builds an on-disk knowledge base of every relevant file, identifies what code cannot answer (audience, naming, use cases, deprecation, constraints), runs targeted Q&A to fill gaps, then emits framework-ready output with optional screenshots or Remotion videos after explicit consent to run code locally. Do NOT use for one-off docstring fixes, single-page edits, or prose without structural intent.
+description: Use when the user wants to generate, regenerate, or substantially expand documentation for a codebase. Triggers include "document this project," "create a docs site," "write an API reference," "generate how-to guides," "set up Fumadocs/Docusaurus/Mintlify/Nextra/Starlight/MkDocs," "build product docs," or any request to produce structured developer or product documentation from existing code. Handles engineering docs (architecture, API reference, contributing, deployment) and product docs (how-tos, tutorials, walkthroughs, FAQs). Builds an on-disk knowledge base from the entire codebase, identifies what code cannot answer (audience, naming, use cases, deprecation, constraints), runs targeted Q&A to fill gaps, then emits framework-ready output with optional screenshots or Remotion videos after explicit consent to run code locally. Do NOT use for one-off docstring fixes, single-page edits, or prose without structural intent.
 ---
 
 # Docs Forge
@@ -12,7 +12,7 @@ A documentation-generation skill that treats a codebase as the source of truth, 
 Given a codebase and a user goal, Docs Forge produces a complete, framework-ready documentation set in seven phases:
 
 1. **Scope** — confirm doc type, audience, framework, and output location.
-2. **Ingest** — walk every relevant file and folder; persist a structured knowledge base to `.docs-forge/kb/`.
+2. **Ingest** — walk the entire codebase, classify every non-skipped file, and persist a structured knowledge base to `.docs-forge/kb/`.
 3. **Gap-analyse** — diff what code reveals vs. what good docs need; produce an `open-questions.md`.
 4. **Elicit** — ask the user only the questions code cannot answer, in tight batches.
 5. **Generate** — render pages in the chosen framework's conventions (Fumadocs / Docusaurus / Mintlify / Nextra / Starlight / MkDocs).
@@ -113,9 +113,11 @@ Inventory them before generating new content. For each existing page:
 
 ## Phase 2 — Codebase knowledge base
 
-Goal: a structured, on-disk understanding of the project that is good enough for Claude to write accurate docs in a future session without re-reading the codebase.
+Goal: a structured, on-disk understanding of the entire project that is good enough for Claude to write accurate docs in a future session without re-reading the codebase.
 
-### Ingestion priority (read in this order)
+Start by inventorying the whole codebase with `git ls-files` when available, otherwise `rg --files`. The priority list below controls read order and depth, not scope: every non-skipped source file should be classified as full-read, sample-read, stat-only, or skipped with a reason.
+
+### Ingestion priority (read the whole codebase in this order)
 
 1. **Project metadata** — `README*`, `package.json`, `pyproject.toml`, `Cargo.toml`, `go.mod`, `composer.json`, `Gemfile`, `requirements*.txt`, `pnpm-workspace.yaml`, `turbo.json`, `nx.json`, `LICENSE`, `CHANGELOG*`, `CONTRIBUTING*`, `.tool-versions`.
 2. **Configuration that shapes behaviour** — env templates (`.env.example`, `*.env.template`), framework configs (`next.config.*`, `vite.config.*`, `tsconfig*.json`, `astro.config.*`, `nuxt.config.*`, `django settings`, `application.yml`).
@@ -137,6 +139,7 @@ Goal: a structured, on-disk understanding of the project that is good enough for
 
 ### Reading discipline
 
+- **Classify every non-skipped file**: record its role, read depth, and why it matters or does not matter for docs.
 - **Always read in full**: README, top-level config files, main entry points, top-level route file, public re-export files, OpenAPI/GraphQL schemas, existing docs.
 - **Sample-read** (head + tail + any function with a docstring): deep utilities, internal helpers, large model files.
 - **Stat-only** (record existence, size, role): test files, fixtures, generated files, large data files.

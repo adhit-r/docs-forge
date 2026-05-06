@@ -55,7 +55,7 @@
           <div class="terminal">
             <p><span class="prompt">$</span> docs-forge document this repo</p>
             <p><span class="muted">scope</span> engineering docs, external developers, Fumadocs</p>
-            <p><span class="muted">ingest</span> README, routes, configs, public exports, tests</p>
+            <p><span class="muted">ingest</span> entire codebase, then key surfaces and tests</p>
             <p><span class="muted">write</span> .docs-forge/kb/00-project-overview.md</p>
             <p><span class="muted">ask</span> Which exports are supported public API?</p>
           </div>
@@ -87,7 +87,7 @@
         <article class="feature">
           <span class="feature-number">01</span>
           <h3>Reads the repo first</h3>
-          <p>Prioritizes manifests, entrypoints, routes, public exports, configs, tests, and existing docs before writing new material.</p>
+          <p>Scans the entire codebase, then prioritizes manifests, entrypoints, routes, public exports, configs, tests, and existing docs before writing new material.</p>
         </article>
         <article class="feature">
           <span class="feature-number">02</span>
@@ -108,7 +108,7 @@
         </div>
         <ol class="timeline">
           <li><span>Scope</span><p>Confirm audience, docs type, framework, output path, and existing docs.</p></li>
-          <li><span>Ingest</span><p>Build `.docs-forge/kb/` from code, metadata, routes, exports, infra, and tests.</p></li>
+          <li><span>Ingest</span><p>Build `.docs-forge/kb/` from the entire codebase, with deeper passes over metadata, routes, exports, infra, and tests.</p></li>
           <li><span>Gap-analyse</span><p>Write open questions before asking the user anything.</p></li>
           <li><span>Elicit</span><p>Batch blocking questions and store answers for later sessions.</p></li>
           <li><span>Generate</span><p>Create framework-native pages with citations back to source files.</p></li>

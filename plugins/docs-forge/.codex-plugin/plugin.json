@@ -1,6 +1,6 @@
 {
   "name": "docs-forge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate structured, framework-ready documentation from a codebase.",
   "author": {
     "name": "adhit-r",
