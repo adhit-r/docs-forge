@@ -312,11 +312,48 @@ h3 {
 }
 
 .feature p,
-.timeline p {
+.timeline p,
+.agent-card p {
   margin: 0;
   color: var(--ink-soft);
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.agents {
+  padding-top: 0;
+}
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 2px solid var(--line);
+  background: var(--field);
+}
+
+.agent-card {
+  min-height: 230px;
+  padding: clamp(20px, 3vw, 30px);
+  border-right: 1px solid var(--line);
+}
+
+.agent-card:last-child {
+  border-right: 0;
+}
+
+.agent-card code {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  font-weight: 760;
+}
+
+.body-copy code,
+.timeline code {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  font-weight: 760;
 }
 
 .section-heading {
@@ -362,6 +399,11 @@ h3 {
   align-items: center;
 }
 
+.install-options {
+  display: grid;
+  gap: 12px;
+}
+
 .command-block {
   border: 2px solid var(--line);
   background: var(--ink);
@@ -371,10 +413,23 @@ h3 {
 }
 
 .command-block code {
+  display: block;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: clamp(0.86rem, 1.5vw, 1.08rem);
   line-height: 1.45;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.command-block span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--paper-deep);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 820;
+  text-transform: uppercase;
 }
 
 .install-steps {
@@ -440,6 +495,18 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .agent-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .agent-card:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .agent-card:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+
   .feature {
     min-height: auto;
     border-right: 0;
@@ -483,6 +550,21 @@ h3 {
   .phase-strip span {
     flex-basis: 50%;
     border-bottom: 1px solid var(--line);
+  }
+
+  .agent-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agent-card,
+  .agent-card:nth-child(2n) {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .agent-card:last-child {
+    border-bottom: 0;
   }
 
   .phase-strip span:nth-last-child(-n + 2) {

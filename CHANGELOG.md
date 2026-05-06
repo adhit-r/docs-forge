@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.0 - 2026-05-07
+
+- Added Claude Code install guidance using the canonical Docs Forge `SKILL.md`.
+- Added Antigravity `AGENTS.md` and optional `GEMINI.md` adapters.
+- Added a universal `AGENTS.md` playbook for other coding agents.
+- Updated the website and README to position Docs Forge as a portable agent workflow, not only a Codex plugin.
+
 ## v0.1.1 - 2026-05-07
 
 - Clarified that Docs Forge inventories the entire codebase, then prioritizes key surfaces for deeper reading.

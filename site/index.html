@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Docs Forge | Codex documentation plugin</title>
+    <title>Docs Forge | Portable documentation workflow</title>
     <meta
       name="description"
-      content="Docs Forge is a Codex plugin for generating structured, framework-ready documentation from real codebases."
+      content="Docs Forge is a portable agent workflow for generating structured, framework-ready documentation from real codebases."
     />
     <meta name="theme-color" content="#C9D9BF" />
     <meta property="og:title" content="Docs Forge" />
     <meta
       property="og:description"
-      content="Turn a codebase into structured engineering and product documentation for Fumadocs, Docusaurus, Mintlify, Nextra, Starlight, and MkDocs."
+      content="Turn a codebase into structured engineering and product documentation with Codex, Claude Code, Antigravity, and AGENTS.md-compatible tools."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://adhit-r.github.io/docs-forge/" />
@@ -28,6 +28,7 @@
       </a>
       <nav class="nav" aria-label="Primary navigation">
         <a href="#install">Install</a>
+        <a href="#agents">Agents</a>
         <a href="#workflow">Workflow</a>
         <a href="https://github.com/adhit-r/docs-forge">GitHub</a>
       </nav>
@@ -36,13 +37,13 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Codex plugin for structured documentation</p>
+          <p class="eyebrow">Documentation workflow for coding agents</p>
           <h1 id="hero-title">Docs Forge</h1>
           <p class="lede">
-            Generate documentation that starts with the real codebase, records what is known, asks only for missing intent, and ships framework-ready pages.
+            Generate documentation with Codex, Claude Code, Antigravity, or any agent that can follow a project playbook. It starts with the real codebase, records what is known, asks only for missing intent, and ships framework-ready pages.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#install">Install marketplace</a>
+            <a class="button primary" href="#install">Install</a>
             <a class="button secondary" href="https://github.com/adhit-r/docs-forge">View source</a>
           </div>
         </div>
@@ -54,10 +55,10 @@
           </div>
           <div class="terminal">
             <p><span class="prompt">$docs-forge</span> document this repo</p>
-            <p><span class="muted">scope</span> engineering docs, external developers, Fumadocs</p>
-            <p><span class="muted">ingest</span> entire codebase, then key surfaces and tests</p>
+            <p><span class="muted">codex</span> install as a marketplace plugin</p>
+            <p><span class="muted">claude</span> install the same SKILL.md</p>
+            <p><span class="muted">agents</span> copy AGENTS.md into the repo</p>
             <p><span class="muted">write</span> .docs-forge/kb/00-project-overview.md</p>
-            <p><span class="muted">ask</span> Which exports are supported public API?</p>
           </div>
           <div class="phase-strip" aria-label="Seven workflow phases">
             <span>Scope</span>
@@ -75,10 +76,10 @@
         </div>
         <div class="body-copy">
           <p>
-            Docs Forge builds a persistent `.docs-forge/` knowledge base before it writes the final docs. The output is resumable, reviewable, and grounded in file citations instead of loose summaries.
+            Docs Forge builds a persistent <code>.docs-forge/</code> knowledge base before it writes the final docs. The output is resumable, reviewable, and grounded in file citations instead of loose summaries.
           </p>
           <p>
-            It is intended for architecture docs, API references, runbooks, product walkthroughs, tutorials, and docs-site setup across common documentation frameworks.
+            It is intended for architecture docs, API references, runbooks, product walkthroughs, tutorials, and docs-site setup across common documentation frameworks. The same workflow is packaged for Codex, Claude Code, Antigravity, and general <code>AGENTS.md</code> readers.
           </p>
         </div>
       </section>
@@ -101,6 +102,31 @@
         </article>
       </section>
 
+      <section class="section agents" id="agents" aria-labelledby="agents-title">
+        <div class="section-heading">
+          <p class="eyebrow">Agent support</p>
+          <h2 id="agents-title">One workflow, multiple entrypoints.</h2>
+        </div>
+        <div class="agent-grid" aria-label="Supported agent entrypoints">
+          <article class="agent-card">
+            <h3>Codex</h3>
+            <p>Install as a Git-backed marketplace plugin and invoke <code>$docs-forge</code>.</p>
+          </article>
+          <article class="agent-card">
+            <h3>Claude Code</h3>
+            <p>Copy the canonical skill folder into <code>~/.claude/skills/docs-forge</code> and invoke <code>/docs-forge</code>.</p>
+          </article>
+          <article class="agent-card">
+            <h3>Antigravity</h3>
+            <p>Copy the adapter <code>AGENTS.md</code>, with optional <code>GEMINI.md</code> overrides for Antigravity-native sessions.</p>
+          </article>
+          <article class="agent-card">
+            <h3>Other Agents</h3>
+            <p>Use the universal <code>AGENTS.md</code> playbook for tools that read repository instructions.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="section workflow" id="workflow" aria-labelledby="workflow-title">
         <div class="section-heading">
           <p class="eyebrow">Operating model</p>
@@ -108,7 +134,7 @@
         </div>
         <ol class="timeline">
           <li><span>Scope</span><p>Confirm audience, docs type, framework, output path, and existing docs.</p></li>
-          <li><span>Ingest</span><p>Build `.docs-forge/kb/` from the entire codebase, with deeper passes over metadata, routes, exports, infra, and tests.</p></li>
+          <li><span>Ingest</span><p>Build <code>.docs-forge/kb/</code> from the entire codebase, with deeper passes over metadata, routes, exports, infra, and tests.</p></li>
           <li><span>Gap-analyse</span><p>Write open questions before asking the user anything.</p></li>
           <li><span>Elicit</span><p>Batch blocking questions and store answers for later sessions.</p></li>
           <li><span>Generate</span><p>Create framework-native pages with citations back to source files.</p></li>
@@ -120,19 +146,30 @@
       <section class="section install" id="install" aria-labelledby="install-title">
         <div>
           <p class="eyebrow">Install</p>
-          <h2 id="install-title">Add the marketplace, then enable the plugin.</h2>
+          <h2 id="install-title">Install for the agent you use.</h2>
           <p>
-            The official public Plugin Directory is not self-serve yet, so Docs Forge is distributed as a Git-backed marketplace.
+            The official public Codex Plugin Directory is not self-serve yet, so Docs Forge is distributed through Git-backed installation paths and portable adapter files.
           </p>
         </div>
-        <div class="command-block">
-          <code>codex plugin marketplace add adhit-r/docs-forge --ref v0.1.1</code>
+        <div class="install-options">
+          <div class="command-block">
+            <span>Codex</span>
+            <code>codex plugin marketplace add adhit-r/docs-forge --ref v0.2.0</code>
+          </div>
+          <div class="command-block">
+            <span>Claude Code</span>
+            <code>git clone --branch v0.2.0 --depth 1 https://github.com/adhit-r/docs-forge.git<br />mkdir -p ~/.claude/skills<br />cp -R docs-forge/plugins/docs-forge/skills/docs-forge ~/.claude/skills/docs-forge</code>
+          </div>
+          <div class="command-block">
+            <span>Antigravity</span>
+            <code>cp docs-forge/adapters/antigravity/AGENTS.md ./AGENTS.md</code>
+          </div>
         </div>
         <div class="install-steps" aria-label="Install steps">
-          <span>Restart Codex</span>
-          <span>Open Plugins</span>
-          <span>Choose Docs Forge</span>
-          <span>Run $docs-forge</span>
+          <span>Codex: $docs-forge</span>
+          <span>Claude: /docs-forge</span>
+          <span>Antigravity: AGENTS.md</span>
+          <span>Universal: adapter playbook</span>
         </div>
       </section>
     </main>

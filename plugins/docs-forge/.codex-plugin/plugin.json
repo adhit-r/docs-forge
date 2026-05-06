@@ -1,6 +1,6 @@
 {
   "name": "docs-forge",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Generate structured, framework-ready documentation from a codebase.",
   "author": {
     "name": "adhit-r",
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Docs Forge",
     "shortDescription": "Generate structured docs from real code.",
-    "longDescription": "Docs Forge creates framework-ready engineering and product documentation by ingesting a codebase, building an on-disk knowledge base, eliciting missing intent, and assembling docs for frameworks such as Fumadocs, Docusaurus, Mintlify, Nextra, Starlight, and MkDocs.",
+    "longDescription": "Docs Forge creates framework-ready engineering and product documentation by ingesting a codebase, building an on-disk knowledge base, eliciting missing intent, and assembling docs for frameworks such as Fumadocs, Docusaurus, Mintlify, Nextra, Starlight, and MkDocs. The canonical SKILL.md also works in Claude Code, with AGENTS.md and GEMINI.md adapters for Antigravity and other coding agents.",
     "developerName": "adhit-r",
     "category": "Productivity",
     "capabilities": [
@@ -35,7 +35,7 @@
       "Create API reference docs from this repo.",
       "Set up a docs site for this project."
     ],
-    "brandColor": "#2563EB",
+    "brandColor": "#A34524",
     "screenshots": []
   }
 }

@@ -1,11 +1,13 @@
 ---
 name: docs-forge
-description: Use when the user wants to generate, regenerate, or substantially expand documentation for a codebase. Triggers include "document this project," "create a docs site," "write an API reference," "generate how-to guides," "set up Fumadocs/Docusaurus/Mintlify/Nextra/Starlight/MkDocs," "build product docs," or any request to produce structured developer or product documentation from existing code. Handles engineering docs (architecture, API reference, contributing, deployment) and product docs (how-tos, tutorials, walkthroughs, FAQs). Builds an on-disk knowledge base from the entire codebase, identifies what code cannot answer (audience, naming, use cases, deprecation, constraints), runs targeted Q&A to fill gaps, then emits framework-ready output with optional screenshots or Remotion videos after explicit consent to run code locally. Do NOT use for one-off docstring fixes, single-page edits, or prose without structural intent.
+description: Use when the user wants to generate, regenerate, or substantially expand documentation for a codebase. Triggers include "document this project," "create a docs site," "write an API reference," "generate how-to guides," "set up Fumadocs/Docusaurus/Mintlify/Nextra/Starlight/MkDocs," "build product docs," or any request to produce structured developer or product documentation from existing code. Works as a Codex skill and as a Claude Code skill because the canonical entrypoint is this SKILL.md. For Antigravity and other AGENTS.md-compatible tools, use the adapter playbooks in this repository. Handles engineering docs (architecture, API reference, contributing, deployment) and product docs (how-tos, tutorials, walkthroughs, FAQs). Builds an on-disk knowledge base from the entire codebase, identifies what code cannot answer (audience, naming, use cases, deprecation, constraints), runs targeted Q&A to fill gaps, then emits framework-ready output with optional screenshots or Remotion videos after explicit consent to run code locally. Do NOT use for one-off docstring fixes, single-page edits, or prose without structural intent.
 ---
 
 # Docs Forge
 
 A documentation-generation skill that treats a codebase as the source of truth, the user as the source of *intent*, and the chosen docs framework as the rendering target. It is opinionated about what code can answer on its own, what only the user can answer, and what can only be answered by *running* the code.
+
+This `SKILL.md` is the canonical skill entrypoint for both Codex and Claude Code. Antigravity, Gemini-style agents, and other coding agents that do not load skills directly should use the Markdown adapters in `adapters/`.
 
 ## What this skill does
 
@@ -113,7 +115,7 @@ Inventory them before generating new content. For each existing page:
 
 ## Phase 2 — Codebase knowledge base
 
-Goal: a structured, on-disk understanding of the entire project that is good enough for Claude to write accurate docs in a future session without re-reading the codebase.
+Goal: a structured, on-disk understanding of the entire project that is good enough for a future agent session to write accurate docs without re-reading the codebase.
 
 Start by inventorying the whole codebase with `git ls-files` when available, otherwise `rg --files`. The priority list below controls read order and depth, not scope: every non-skipped source file should be classified as full-read, sample-read, stat-only, or skipped with a reason.
 
