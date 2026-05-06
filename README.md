@@ -11,10 +11,12 @@ Website: https://adhit-r.github.io/docs-forge/
 Add this repository as a Codex plugin marketplace:
 
 ```bash
-codex plugin marketplace add adhit-r/docs-forge --ref main
+codex plugin marketplace add adhit-r/docs-forge --ref v0.1.1
 ```
 
 Then open the Codex plugin UI, install `Docs Forge`, and start a new chat with the plugin enabled.
+
+Use `--ref main` only if you want the latest development version.
 
 ## Use
 
