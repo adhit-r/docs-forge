@@ -1,0 +1,20 @@
+{
+  "name": "local",
+  "interface": {
+    "displayName": "Local Plugins"
+  },
+  "plugins": [
+    {
+      "name": "docs-forge",
+      "source": {
+        "source": "local",
+        "path": "./plugins/docs-forge"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
