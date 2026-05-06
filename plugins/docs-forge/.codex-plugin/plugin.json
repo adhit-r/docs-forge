@@ -7,7 +7,7 @@
     "email": "",
     "url": "https://github.com/adhit-r"
   },
-  "homepage": "https://github.com/adhit-r/docs-forge",
+  "homepage": "https://adhit-r.github.io/docs-forge/",
   "repository": "https://github.com/adhit-r/docs-forge",
   "license": "UNLICENSED",
   "keywords": [
@@ -27,7 +27,7 @@
       "Read",
       "Write"
     ],
-    "websiteURL": "https://github.com/adhit-r/docs-forge",
+    "websiteURL": "https://adhit-r.github.io/docs-forge/",
     "privacyPolicyURL": "https://github.com/adhit-r/docs-forge",
     "termsOfServiceURL": "https://github.com/adhit-r/docs-forge",
     "defaultPrompt": [

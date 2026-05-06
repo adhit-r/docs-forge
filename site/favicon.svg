@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Docs Forge">
+  <rect width="64" height="64" fill="#9f3f20"/>
+  <rect x="8" y="8" width="48" height="48" fill="none" stroke="#fffaf0" stroke-width="4"/>
+  <path d="M19 20h12c8 0 14 5 14 12s-6 12-14 12H19V20Zm8 7v10h4c4 0 7-2 7-5s-3-5-7-5h-4Z" fill="#fffaf0"/>
+</svg>

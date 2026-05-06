@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Docs Forge | Codex documentation plugin</title>
+    <meta
+      name="description"
+      content="Docs Forge is a Codex plugin for generating structured, framework-ready documentation from real codebases."
+    />
+    <meta name="theme-color" content="#C9D9BF" />
+    <meta property="og:title" content="Docs Forge" />
+    <meta
+      property="og:description"
+      content="Turn a codebase into structured engineering and product documentation for Fumadocs, Docusaurus, Mintlify, Nextra, Starlight, and MkDocs."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adhit-r.github.io/docs-forge/" />
+    <link rel="canonical" href="https://adhit-r.github.io/docs-forge/" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Docs Forge home">
+        <span class="brand-mark" aria-hidden="true">DF</span>
+        <span>Docs Forge</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#install">Install</a>
+        <a href="#workflow">Workflow</a>
+        <a href="https://github.com/adhit-r/docs-forge">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Codex plugin for structured documentation</p>
+          <h1 id="hero-title">Docs Forge</h1>
+          <p class="lede">
+            Generate documentation that starts with the real codebase, records what is known, asks only for missing intent, and ships framework-ready pages.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#install">Install marketplace</a>
+            <a class="button secondary" href="https://github.com/adhit-r/docs-forge">View source</a>
+          </div>
+        </div>
+
+        <aside class="product-panel" aria-label="Docs Forge workflow preview">
+          <div class="panel-bar">
+            <span>docs-forge.session</span>
+            <span>phase 01</span>
+          </div>
+          <div class="terminal">
+            <p><span class="prompt">$</span> docs-forge document this repo</p>
+            <p><span class="muted">scope</span> engineering docs, external developers, Fumadocs</p>
+            <p><span class="muted">ingest</span> README, routes, configs, public exports, tests</p>
+            <p><span class="muted">write</span> .docs-forge/kb/00-project-overview.md</p>
+            <p><span class="muted">ask</span> Which exports are supported public API?</p>
+          </div>
+          <div class="phase-strip" aria-label="Seven workflow phases">
+            <span>Scope</span>
+            <span>Ingest</span>
+            <span>Ask</span>
+            <span>Generate</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section split" aria-labelledby="why-title">
+        <div>
+          <p class="eyebrow">Why it exists</p>
+          <h2 id="why-title">Documentation generation with an audit trail.</h2>
+        </div>
+        <div class="body-copy">
+          <p>
+            Docs Forge builds a persistent `.docs-forge/` knowledge base before it writes the final docs. The output is resumable, reviewable, and grounded in file citations instead of loose summaries.
+          </p>
+          <p>
+            It is intended for architecture docs, API references, runbooks, product walkthroughs, tutorials, and docs-site setup across common documentation frameworks.
+          </p>
+        </div>
+      </section>
+
+      <section class="section feature-grid" aria-label="Core capabilities">
+        <article class="feature">
+          <span class="feature-number">01</span>
+          <h3>Reads the repo first</h3>
+          <p>Prioritizes manifests, entrypoints, routes, public exports, configs, tests, and existing docs before writing new material.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number">02</span>
+          <h3>Asks only for intent</h3>
+          <p>Separates what code can prove from what only a maintainer can answer: audience, naming, supported APIs, deprecation, tone, and use cases.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number">03</span>
+          <h3>Targets real frameworks</h3>
+          <p>Outputs pages and navigation for Fumadocs, Docusaurus, Mintlify, Nextra, Starlight, and MkDocs conventions.</p>
+        </article>
+      </section>
+
+      <section class="section workflow" id="workflow" aria-labelledby="workflow-title">
+        <div class="section-heading">
+          <p class="eyebrow">Operating model</p>
+          <h2 id="workflow-title">Seven phases, saved on disk.</h2>
+        </div>
+        <ol class="timeline">
+          <li><span>Scope</span><p>Confirm audience, docs type, framework, output path, and existing docs.</p></li>
+          <li><span>Ingest</span><p>Build `.docs-forge/kb/` from code, metadata, routes, exports, infra, and tests.</p></li>
+          <li><span>Gap-analyse</span><p>Write open questions before asking the user anything.</p></li>
+          <li><span>Elicit</span><p>Batch blocking questions and store answers for later sessions.</p></li>
+          <li><span>Generate</span><p>Create framework-native pages with citations back to source files.</p></li>
+          <li><span>Capture</span><p>Optionally run the project to collect screenshots or walkthrough media.</p></li>
+          <li><span>Assemble</span><p>Build navigation, validate links, and produce a completeness review.</p></li>
+        </ol>
+      </section>
+
+      <section class="section install" id="install" aria-labelledby="install-title">
+        <div>
+          <p class="eyebrow">Install</p>
+          <h2 id="install-title">Add the marketplace, then enable the plugin.</h2>
+          <p>
+            The official public Plugin Directory is not self-serve yet, so Docs Forge is distributed as a Git-backed marketplace.
+          </p>
+        </div>
+        <div class="command-block">
+          <code>codex plugin marketplace add adhit-r/docs-forge --ref main</code>
+        </div>
+        <div class="install-steps" aria-label="Install steps">
+          <span>Restart Codex</span>
+          <span>Open Plugins</span>
+          <span>Choose Docs Forge</span>
+          <span>Run $docs-forge</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Docs Forge</span>
+      <a href="https://github.com/adhit-r/docs-forge">github.com/adhit-r/docs-forge</a>
+    </footer>
+  </body>
+</html>
