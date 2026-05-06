@@ -1,7 +1,7 @@
 {
-  "name": "local",
+  "name": "docs-forge",
   "interface": {
-    "displayName": "Local Plugins"
+    "displayName": "Docs Forge"
   },
   "plugins": [
     {
