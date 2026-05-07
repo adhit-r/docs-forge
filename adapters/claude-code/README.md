@@ -11,7 +11,7 @@ plugins/docs-forge/skills/docs-forge/SKILL.md
 Use this when you want Docs Forge available in every Claude Code project:
 
 ```bash
-git clone --branch v0.2.0 --depth 1 https://github.com/adhit-r/docs-forge.git
+git clone --branch v0.3.0 --depth 1 https://github.com/adhit-r/docs-forge.git
 mkdir -p ~/.claude/skills
 cp -R docs-forge/plugins/docs-forge/skills/docs-forge ~/.claude/skills/docs-forge
 ```

@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.3.0 - 2026-05-07
+
+- Added a dependency-free `npx` installer with an agent-selection terminal prompt.
+- Added non-interactive installer flags for Codex, Claude Code, Antigravity, and universal `AGENTS.md` installs.
+- Updated README and website install paths to prefer the one-command installer while keeping manual fallback docs.
+- Added npm package metadata so the repository can run through GitHub-backed `npx`.
+
 ## v0.2.0 - 2026-05-07
 
 - Added Claude Code install guidance using the canonical Docs Forge `SKILL.md`.

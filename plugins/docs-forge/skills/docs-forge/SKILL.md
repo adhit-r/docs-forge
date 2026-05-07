@@ -7,7 +7,7 @@ description: Use when the user wants to generate, regenerate, or substantially e
 
 A documentation-generation skill that treats a codebase as the source of truth, the user as the source of *intent*, and the chosen docs framework as the rendering target. It is opinionated about what code can answer on its own, what only the user can answer, and what can only be answered by *running* the code.
 
-This `SKILL.md` is the canonical skill entrypoint for both Codex and Claude Code. Antigravity, Gemini-style agents, and other coding agents that do not load skills directly should use the Markdown adapters in `adapters/`.
+This `SKILL.md` is the canonical skill entrypoint for both Codex and Claude Code. Antigravity, Gemini-style agents, and other coding agents that do not load skills directly should use the Markdown adapters in `adapters/`. The repository also includes a dependency-free `npx` installer that asks which agent to configure and copies or merges the matching files.
 
 ## What this skill does
 

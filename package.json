@@ -1,0 +1,39 @@
+{
+  "name": "docs-forge",
+  "version": "0.3.0",
+  "description": "Portable documentation workflow installer for Codex, Claude Code, Antigravity, and AGENTS.md-compatible tools.",
+  "license": "MIT",
+  "author": "adhit-r",
+  "homepage": "https://adhit-r.github.io/docs-forge/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adhit-r/docs-forge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adhit-r/docs-forge/issues"
+  },
+  "keywords": [
+    "documentation",
+    "docs",
+    "codex",
+    "claude-code",
+    "antigravity",
+    "agents"
+  ],
+  "bin": {
+    "docs-forge": "bin/docs-forge.js"
+  },
+  "files": [
+    "bin/",
+    "plugins/",
+    "adapters/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node bin/docs-forge.js --help"
+  }
+}

@@ -40,7 +40,7 @@
           <p class="eyebrow">Documentation workflow for coding agents</p>
           <h1 id="hero-title">Docs Forge</h1>
           <p class="lede">
-            Generate documentation with Codex, Claude Code, Antigravity, or any agent that can follow a project playbook. It starts with the real codebase, records what is known, asks only for missing intent, and ships framework-ready pages.
+            Generate documentation with Codex, Claude Code, Antigravity, or any agent that can follow a project playbook. Install it with one npx command, choose your agent in the terminal, and ship framework-ready pages from real code.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button primary" href="#install">Install</a>
@@ -54,10 +54,10 @@
             <span>phase 01</span>
           </div>
           <div class="terminal">
-            <p><span class="prompt">$docs-forge</span> document this repo</p>
-            <p><span class="muted">codex</span> install as a marketplace plugin</p>
-            <p><span class="muted">claude</span> install the same SKILL.md</p>
-            <p><span class="muted">agents</span> copy AGENTS.md into the repo</p>
+            <p><span class="prompt">npx</span> github:adhit-r/docs-forge#v0.3.0</p>
+            <p><span class="muted">choose</span> Codex, Claude Code, Antigravity, or AGENTS.md</p>
+            <p><span class="muted">install</span> skill, plugin command, or project adapter</p>
+            <p><span class="muted">run</span> $docs-forge or /docs-forge</p>
             <p><span class="muted">write</span> .docs-forge/kb/00-project-overview.md</p>
           </div>
           <div class="phase-strip" aria-label="Seven workflow phases">
@@ -79,7 +79,7 @@
             Docs Forge builds a persistent <code>.docs-forge/</code> knowledge base before it writes the final docs. The output is resumable, reviewable, and grounded in file citations instead of loose summaries.
           </p>
           <p>
-            It is intended for architecture docs, API references, runbooks, product walkthroughs, tutorials, and docs-site setup across common documentation frameworks. The same workflow is packaged for Codex, Claude Code, Antigravity, and general <code>AGENTS.md</code> readers.
+            It is intended for architecture docs, API references, runbooks, product walkthroughs, tutorials, and docs-site setup across common documentation frameworks. The same workflow is packaged through a prompt-driven <code>npx</code> installer for Codex, Claude Code, Antigravity, and general <code>AGENTS.md</code> readers.
           </p>
         </div>
       </section>
@@ -110,19 +110,19 @@
         <div class="agent-grid" aria-label="Supported agent entrypoints">
           <article class="agent-card">
             <h3>Codex</h3>
-            <p>Install as a Git-backed marketplace plugin and invoke <code>$docs-forge</code>.</p>
+            <p>The installer can run the Git-backed marketplace command, then Codex invokes <code>$docs-forge</code>.</p>
           </article>
           <article class="agent-card">
             <h3>Claude Code</h3>
-            <p>Copy the canonical skill folder into <code>~/.claude/skills/docs-forge</code> and invoke <code>/docs-forge</code>.</p>
+            <p>The installer copies the canonical skill folder into user or project scope, then Claude invokes <code>/docs-forge</code>.</p>
           </article>
           <article class="agent-card">
             <h3>Antigravity</h3>
-            <p>Copy the adapter <code>AGENTS.md</code>, with optional <code>GEMINI.md</code> overrides for Antigravity-native sessions.</p>
+            <p>The installer merges the adapter <code>AGENTS.md</code>, with optional <code>GEMINI.md</code> overrides for native sessions.</p>
           </article>
           <article class="agent-card">
             <h3>Other Agents</h3>
-            <p>Use the universal <code>AGENTS.md</code> playbook for tools that read repository instructions.</p>
+            <p>The installer can merge the universal <code>AGENTS.md</code> playbook for tools that read repository instructions.</p>
           </article>
         </div>
       </section>
@@ -146,30 +146,30 @@
       <section class="section install" id="install" aria-labelledby="install-title">
         <div>
           <p class="eyebrow">Install</p>
-          <h2 id="install-title">Install for the agent you use.</h2>
+          <h2 id="install-title">Run npx, then choose your agent.</h2>
           <p>
-            The official public Codex Plugin Directory is not self-serve yet, so Docs Forge is distributed through Git-backed installation paths and portable adapter files.
+            The installer is dependency-free and works from the GitHub release. It asks which agent to configure, then writes the matching skill or adapter files.
           </p>
         </div>
         <div class="install-options">
           <div class="command-block">
-            <span>Codex</span>
-            <code>codex plugin marketplace add adhit-r/docs-forge --ref v0.2.0</code>
+            <span>Interactive</span>
+            <code>npx github:adhit-r/docs-forge#v0.3.0</code>
           </div>
           <div class="command-block">
             <span>Claude Code</span>
-            <code>git clone --branch v0.2.0 --depth 1 https://github.com/adhit-r/docs-forge.git<br />mkdir -p ~/.claude/skills<br />cp -R docs-forge/plugins/docs-forge/skills/docs-forge ~/.claude/skills/docs-forge</code>
+            <code>npx github:adhit-r/docs-forge#v0.3.0 --agents claude --scope user --yes</code>
           </div>
           <div class="command-block">
             <span>Antigravity</span>
-            <code>cp docs-forge/adapters/antigravity/AGENTS.md ./AGENTS.md</code>
+            <code>npx github:adhit-r/docs-forge#v0.3.0 --agents antigravity --target . --with-gemini --yes</code>
           </div>
         </div>
         <div class="install-steps" aria-label="Install steps">
-          <span>Codex: $docs-forge</span>
-          <span>Claude: /docs-forge</span>
-          <span>Antigravity: AGENTS.md</span>
-          <span>Universal: adapter playbook</span>
+          <span>TUI asks agent</span>
+          <span>Writes the right files</span>
+          <span>Keeps manual adapters</span>
+          <span>Uses v0.3.0 ref</span>
         </div>
       </section>
     </main>
