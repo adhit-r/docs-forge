@@ -113,6 +113,18 @@ button:focus-visible {
   align-items: center;
 }
 
+.article-hero {
+  width: min(var(--max), calc(100% - 36px));
+  margin: 0 auto;
+  padding: clamp(54px, 9vw, 118px) 0 clamp(44px, 6vw, 82px);
+}
+
+.article-hero h1 {
+  max-width: 1040px;
+  font-size: clamp(3.2rem, 8vw, 7.4rem);
+  line-height: 0.9;
+}
+
 .eyebrow {
   margin: 0 0 18px;
   font-family: ui-sans-serif, system-ui, sans-serif;
@@ -313,7 +325,8 @@ h3 {
 
 .feature p,
 .timeline p,
-.agent-card p {
+.agent-card p,
+.comparison-table {
   margin: 0;
   color: var(--ink-soft);
   font-size: 1rem;
@@ -349,7 +362,8 @@ h3 {
 }
 
 .body-copy code,
-.timeline code {
+.timeline code,
+.feature code {
   color: var(--accent-dark);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.92em;
@@ -389,6 +403,57 @@ h3 {
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 0.9rem;
   font-weight: 850;
+  text-transform: uppercase;
+}
+
+.query-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.query-list span {
+  border: 1px solid var(--line);
+  background: var(--field);
+  padding: 10px 12px;
+  color: var(--ink-soft);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 740;
+}
+
+.comparison-table {
+  display: grid;
+  border: 2px solid var(--line);
+  background: var(--field);
+}
+
+.comparison-table div {
+  display: grid;
+  grid-template-columns: 0.75fr 1.35fr 1.1fr;
+  border-bottom: 1px solid var(--line);
+}
+
+.comparison-table div:last-child {
+  border-bottom: 0;
+}
+
+.comparison-table strong,
+.comparison-table span {
+  min-width: 0;
+  padding: 16px;
+  border-right: 1px solid var(--line);
+}
+
+.comparison-table strong:last-child,
+.comparison-table span:last-child {
+  border-right: 0;
+}
+
+.comparison-table strong {
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.82rem;
   text-transform: uppercase;
 }
 
@@ -534,6 +599,7 @@ h3 {
   }
 
   .hero,
+  .article-hero,
   .section {
     margin-right: 18px;
     margin-left: 18px;
@@ -569,5 +635,57 @@ h3 {
 
   .phase-strip span:nth-last-child(-n + 2) {
     border-bottom: 0;
+  }
+
+  .comparison-table div {
+    display: block;
+    margin-bottom: 12px;
+    border: 2px solid var(--line);
+    background: var(--field);
+  }
+
+  .comparison-table {
+    border: 0;
+    background: transparent;
+  }
+
+  .comparison-table div:first-child {
+    display: none;
+  }
+
+  .comparison-table span {
+    display: block;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .comparison-table span:last-child {
+    border-bottom: 0;
+  }
+
+  .comparison-table div:last-child {
+    margin-bottom: 0;
+  }
+
+  .comparison-table span::before {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--accent-dark);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 820;
+    text-transform: uppercase;
+  }
+
+  .comparison-table span:nth-child(1)::before {
+    content: "Option";
+  }
+
+  .comparison-table span:nth-child(2)::before {
+    content: "Best for";
+  }
+
+  .comparison-table span:nth-child(3)::before {
+    content: "Tradeoff";
   }
 }

@@ -13,6 +13,17 @@ Website: https://adhit-r.github.io/docs-forge/
 
 Current release: `v0.3.0`
 
+## AI Search Assets
+
+Docs Forge includes crawler-readable and LLM-readable assets for AI search discovery:
+
+- AI answer page: https://adhit-r.github.io/docs-forge/ai-documentation-generator.html
+- `llms.txt`: https://adhit-r.github.io/docs-forge/llms.txt
+- Product facts: https://adhit-r.github.io/docs-forge/product.md
+- Capabilities: https://adhit-r.github.io/docs-forge/capabilities.md
+- Pricing: https://adhit-r.github.io/docs-forge/pricing.md
+- Sitemap: https://adhit-r.github.io/docs-forge/sitemap.xml
+
 ## What Docs Forge Generates
 
 Docs Forge is meant for multi-page documentation work, not one-off prose edits.
