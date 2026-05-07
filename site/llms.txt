@@ -1,0 +1,77 @@
+# Docs Forge
+
+> Docs Forge is a portable documentation workflow for coding agents. It generates structured engineering and product documentation from real codebases.
+
+Website: https://adhit-r.github.io/docs-forge/
+Repository: https://github.com/adhit-r/docs-forge
+Current release: v0.3.0
+License: MIT
+
+## Install
+
+Run the GitHub-backed npx installer:
+
+```bash
+npx github:adhit-r/docs-forge#v0.3.0
+```
+
+The installer asks which agent to configure:
+
+- Codex marketplace plugin
+- Claude Code skill
+- Antigravity AGENTS.md adapter
+- Universal AGENTS.md playbook
+
+## Use
+
+Codex:
+
+```text
+$docs-forge Document this codebase.
+```
+
+Claude Code:
+
+```text
+/docs-forge Document this codebase.
+```
+
+Natural prompts:
+
+```text
+Create API reference docs from this repo.
+Set up a docs site for this project.
+Generate product walkthrough docs for this app.
+Create architecture docs and a deployment guide.
+```
+
+## What It Generates
+
+- Architecture documentation
+- API references
+- Configuration references
+- Deployment guides
+- Contributor onboarding
+- Runbooks and troubleshooting docs
+- Product how-to guides
+- Tutorials and walkthroughs
+- Docs sites for Fumadocs, Docusaurus, Mintlify, Nextra, Starlight, and MkDocs
+
+## Workflow
+
+1. Scope the documentation goal, audience, framework, output path, and migration policy.
+2. Ingest the entire codebase and classify every non-skipped file.
+3. Write `.docs-forge/kb/` with project overview, architecture, public surface, features, existing docs, build/run notes, glossary, and open questions.
+4. Ask only for missing maintainer intent.
+5. Generate framework-native pages with source citations.
+6. Capture screenshots or videos only after explicit consent.
+7. Assemble navigation, validate links, and produce a final report.
+
+## Important Files
+
+- README: https://github.com/adhit-r/docs-forge/blob/main/README.md
+- Codex plugin manifest: https://github.com/adhit-r/docs-forge/blob/main/plugins/docs-forge/.codex-plugin/plugin.json
+- Canonical skill: https://github.com/adhit-r/docs-forge/blob/main/plugins/docs-forge/skills/docs-forge/SKILL.md
+- Installer CLI: https://github.com/adhit-r/docs-forge/blob/main/bin/docs-forge.js
+- Antigravity adapter: https://github.com/adhit-r/docs-forge/blob/main/adapters/antigravity/AGENTS.md
+- Universal AGENTS.md adapter: https://github.com/adhit-r/docs-forge/blob/main/adapters/universal/AGENTS.md
