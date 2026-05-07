@@ -1,7 +1,7 @@
 {
   "name": "docs-forge",
   "version": "0.3.0",
-  "description": "Portable documentation workflow installer for Codex, Claude Code, Antigravity, and AGENTS.md-compatible tools.",
+  "description": "AI agent documentation generator for codebases, packaged for Codex, Claude Code, Antigravity, and AGENTS.md-compatible tools.",
   "license": "MIT",
   "author": "adhit-r",
   "homepage": "https://adhit-r.github.io/docs-forge/",
@@ -13,12 +13,21 @@
     "url": "https://github.com/adhit-r/docs-forge/issues"
   },
   "keywords": [
+    "documentation-generator",
+    "codebase-documentation",
+    "ai-documentation",
+    "developer-tools",
+    "docs-generator",
+    "codex-plugin",
     "documentation",
     "docs",
     "codex",
     "claude-code",
     "antigravity",
-    "agents"
+    "agents-md",
+    "agents",
+    "api-docs",
+    "architecture-docs"
   ],
   "bin": {
     "docs-forge": "bin/docs-forge.js"

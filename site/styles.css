@@ -637,6 +637,26 @@ h3 {
     border-bottom: 0;
   }
 
+  .timeline {
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+  }
+
+  .timeline li {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .timeline li:last-child {
+    border-bottom: 0;
+  }
+
+  .timeline span {
+    min-height: 0;
+    margin-bottom: 12px;
+  }
+
   .comparison-table div {
     display: block;
     margin-bottom: 12px;

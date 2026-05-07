@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1200, initial-scale=1" />
+    <title>Docs Forge OG Preview</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #121712;
+        --ink-soft: #3f4c42;
+        --paper: #e8efe5;
+        --paper-deep: #c9d9bf;
+        --field: #f8fbf4;
+        --line: #1e2a21;
+        --line-soft: rgba(30, 42, 33, 0.22);
+        --rust: #a34524;
+        --rust-deep: #68240f;
+        --sage: #4c7355;
+        --brass: #a9881e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-width: 1200px;
+        height: 100%;
+        min-height: 630px;
+        margin: 0;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+      }
+
+      .og-frame {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(30, 42, 33, 0.06) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(30, 42, 33, 0.052) 1px, transparent 1px),
+          var(--paper);
+        background-size: 44px 44px;
+      }
+
+      .og-frame::before {
+        content: "";
+        position: absolute;
+        inset: 30px;
+        border: 2px solid var(--line);
+        pointer-events: none;
+      }
+
+      .og-frame::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 360px;
+        height: 160px;
+        background:
+          linear-gradient(90deg, transparent 0 42px, rgba(76, 115, 85, 0.18) 42px 44px),
+          linear-gradient(180deg, transparent 0 42px, rgba(76, 115, 85, 0.18) 42px 44px);
+        background-size: 44px 44px;
+        opacity: 0.9;
+        pointer-events: none;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 405px;
+        gap: 48px;
+        height: 100%;
+        padding: 62px 72px 58px;
+      }
+
+      .brand-row,
+      .tags,
+      .signal-row,
+      .install-meta {
+        display: flex;
+        align-items: center;
+      }
+
+      .brand-row {
+        gap: 16px;
+        margin-bottom: 44px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 18px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 56px;
+        height: 56px;
+        place-items: center;
+        border: 2px solid var(--line);
+        background: var(--rust);
+        color: var(--field);
+        font-size: 17px;
+        letter-spacing: 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--rust-deep);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 20px;
+        font-weight: 850;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 675px;
+        margin: 0 0 20px;
+        font-size: 118px;
+        line-height: 0.83;
+        letter-spacing: 0;
+      }
+
+      .lede {
+        max-width: 750px;
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 34px;
+        line-height: 1.12;
+      }
+
+      .tags {
+        flex-wrap: wrap;
+        gap: 10px;
+        max-width: 700px;
+        margin-top: 34px;
+      }
+
+      .tag {
+        border: 2px solid var(--line);
+        background: var(--field);
+        padding: 9px 14px;
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 17px;
+        font-weight: 780;
+      }
+
+      .tag.sage {
+        background: var(--paper-deep);
+      }
+
+      .right-rail {
+        align-self: stretch;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        border: 2px solid var(--line);
+        background: var(--field);
+        box-shadow: 14px 14px 0 var(--line);
+      }
+
+      .panel-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 15px 16px;
+        border-bottom: 2px solid var(--line);
+        background: var(--paper-deep);
+        color: var(--ink-soft);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .terminal {
+        padding: 28px 24px 22px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      .terminal p {
+        margin: 0;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--line-soft);
+        color: var(--ink);
+        font-size: 19px;
+        line-height: 1.35;
+      }
+
+      .terminal p:last-child {
+        border-bottom: 0;
+      }
+
+      .prompt {
+        color: var(--rust);
+        font-weight: 900;
+      }
+
+      .muted {
+        display: inline-block;
+        min-width: 88px;
+        color: var(--sage);
+        font-weight: 900;
+      }
+
+      .install-box {
+        margin-top: 22px;
+        border: 2px solid var(--line);
+        background: var(--ink);
+        color: var(--field);
+      }
+
+      .install-meta {
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(248, 251, 244, 0.25);
+        color: var(--paper-deep);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 15px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .command {
+        display: block;
+        padding: 16px 14px 18px;
+        color: var(--field);
+        font-size: 18px;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+      }
+
+      .signal-row {
+        justify-content: space-between;
+        gap: 0;
+        border-top: 2px solid var(--line);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+
+      .signal-row span {
+        flex: 1 1 33.333%;
+        min-height: 58px;
+        display: grid;
+        place-items: center;
+        border-right: 1px solid var(--line);
+        background: var(--paper-deep);
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .signal-row span:last-child {
+        border-right: 0;
+      }
+
+      .brass-rule {
+        position: absolute;
+        left: 72px;
+        bottom: 30px;
+        width: 232px;
+        height: 10px;
+        background: var(--brass);
+        border: 2px solid var(--line);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="og-frame" aria-label="Docs Forge social preview">
+      <div class="content">
+        <section>
+          <div class="brand-row">
+            <span class="brand-mark" aria-hidden="true">DF</span>
+            <span>Docs Forge</span>
+          </div>
+
+          <p class="eyebrow">AI agent documentation generator for codebases</p>
+          <h1>Docs Forge</h1>
+          <p class="lede">
+            Generate codebase docs with agent-ready workflows for Codex, Claude Code,
+            Antigravity, and AGENTS.md.
+          </p>
+
+          <div class="tags" aria-label="Supported agent and install surfaces">
+            <span class="tag sage">Codex</span>
+            <span class="tag sage">Claude Code</span>
+            <span class="tag sage">Antigravity</span>
+            <span class="tag">AGENTS.md</span>
+            <span class="tag">npx installer</span>
+          </div>
+        </section>
+
+        <aside class="right-rail" aria-label="npx installer preview">
+          <div class="panel-top">
+            <span>docs-forge</span>
+            <span>installer</span>
+          </div>
+
+          <div class="terminal">
+            <p><span class="prompt">npx</span> github:adhit-r/docs-forge</p>
+            <p><span class="muted">choose</span> Codex</p>
+            <p><span class="muted">choose</span> Claude Code</p>
+            <p><span class="muted">choose</span> Antigravity</p>
+            <p><span class="muted">merge</span> AGENTS.md</p>
+
+            <div class="install-box">
+              <div class="install-meta">
+                <span>portable</span>
+                <span>npx installer</span>
+              </div>
+              <code class="command">npx github:adhit-r/docs-forge</code>
+            </div>
+          </div>
+
+          <div class="signal-row" aria-label="Docs Forge output qualities">
+            <span>Repo</span>
+            <span>Docs</span>
+            <span>Agents</span>
+          </div>
+        </aside>
+      </div>
+      <div class="brass-rule" aria-hidden="true"></div>
+    </main>
+  </body>
+</html>
