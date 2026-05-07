@@ -480,6 +480,8 @@ site/
   index.html
   styles.css
   favicon.svg
+  logo-mark.svg
+  logo.svg
 ```
 
 ## Development

@@ -105,15 +105,10 @@
       }
 
       .brand-mark {
-        display: grid;
+        display: block;
         width: 56px;
         height: 56px;
-        place-items: center;
-        border: 2px solid var(--line);
-        background: var(--rust);
-        color: var(--field);
-        font-size: 17px;
-        letter-spacing: 0;
+        flex: 0 0 auto;
       }
 
       .eyebrow {
@@ -283,7 +278,7 @@
       <div class="content">
         <section>
           <div class="brand-row">
-            <span class="brand-mark" aria-hidden="true">DF</span>
+            <img class="brand-mark" src="./logo-mark.svg" alt="" aria-hidden="true" />
             <span>Docs Forge</span>
           </div>
 

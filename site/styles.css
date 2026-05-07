@@ -85,14 +85,10 @@ button:focus-visible {
 }
 
 .brand-mark {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border: 2px solid var(--line);
-  background: var(--accent);
-  color: var(--field);
-  font-size: 0.74rem;
+  display: block;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
 }
 
 .nav {

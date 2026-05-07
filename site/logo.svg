@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 96" role="img" aria-labelledby="docs-forge-logo-title">
+  <title id="docs-forge-logo-title">Docs Forge logo</title>
+  <rect width="372" height="96" fill="#e8efe5"/>
+  <g>
+    <rect x="6" y="6" width="84" height="84" fill="#c9d9bf" stroke="#121712" stroke-width="5"/>
+    <path d="M21 14h34l20 20v44H21z" fill="#f8fbf4" stroke="#121712" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M55 14v20h20" fill="#c9d9bf" stroke="#121712" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M32 34h22" stroke="#a34524" stroke-width="8" stroke-linecap="square"/>
+    <path d="M32 49h31" stroke="#121712" stroke-width="5" stroke-linecap="square"/>
+    <path d="M32 63h20" stroke="#121712" stroke-width="5" stroke-linecap="square"/>
+    <path d="M22 78h52l-8 10H30z" fill="#a34524" stroke="#121712" stroke-width="5" stroke-linejoin="round"/>
+  </g>
+  <g fill="#121712" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="850" letter-spacing="0">
+    <text x="104" y="45" font-size="34">DOCS FORGE</text>
+    <text x="106" y="69" fill="#3f4c42" font-size="15" font-weight="760">AGENT DOCUMENTATION GENERATOR</text>
+  </g>
+</svg>

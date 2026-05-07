@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Docs Forge">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="docs-forge-mark-title">
+  <title id="docs-forge-mark-title">Docs Forge mark</title>
   <rect width="96" height="96" fill="#e8efe5"/>
   <rect x="6" y="6" width="84" height="84" fill="#c9d9bf" stroke="#121712" stroke-width="5"/>
   <path d="M21 14h34l20 20v44H21z" fill="#f8fbf4" stroke="#121712" stroke-width="5" stroke-linejoin="round"/>
