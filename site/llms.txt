@@ -5,6 +5,7 @@
 Website: https://adhit-r.github.io/docs-forge/
 Repository: https://github.com/adhit-r/docs-forge
 Current release: v0.3.0
+Last updated: 2026-05-12
 License: MIT
 
 ## Install

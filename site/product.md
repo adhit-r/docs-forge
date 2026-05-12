@@ -1,5 +1,7 @@
 # Docs Forge Product Facts
 
+Last updated: 2026-05-12
+
 ## Short Description
 
 Docs Forge is a portable agent documentation generator for real codebases. It helps AI coding assistants generate codebase documentation, API docs, architecture docs, runbooks, onboarding docs, and docs sites from an existing repository.
