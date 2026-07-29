@@ -69,7 +69,10 @@
 
             <h3>Cookie and analytics preferences</h3>
             <p>
-              The site stores your necessary and analytics choice in your browser’s local storage. A small local receipt history records the purpose, choice, time, collection point, and policy version. This is used to remember and demonstrate your choice on that device.
+              The site provides a headless consent bridge for an external consent manager. Docs Forge does not display its own cookie banner. Until that manager is connected and passes a choice to the bridge, no analytics decision is stored and PostHog remains off.
+            </p>
+            <p>
+              After the consent manager passes a choice, the bridge can store it in local storage and keep a small receipt history with the purpose, choice, time, collection point, and policy version. This lets the selected consent manager remain the visitor-facing source of truth.
             </p>
             <p>
               PostHog analytics is optional. It is not loaded until you grant analytics consent and a PostHog project key has been configured. The integration disables autocapture and session recording. It measures page views and a successful form-submission event without sending the form’s email, phone, or message to PostHog.
@@ -94,7 +97,7 @@
             <div class="purpose-list" role="list" aria-label="Data processing purposes">
               <div role="listitem">
                 <strong>Strictly necessary storage</strong>
-                <span>Remember your privacy choice and maintain the consent receipt on your device.</span>
+                <span>After the external consent manager records a choice, remember it and maintain the receipt on your device.</span>
               </div>
               <div role="listitem">
                 <strong>Site analytics</strong>
@@ -119,11 +122,11 @@
           </div>
           <div class="policy-copy">
             <p>
-              You can reject analytics, grant it later, or withdraw it at any time. Withdrawing analytics stops PostHog capture and clears its local identity and persistence where the SDK is active. It does not affect the strictly necessary preference record.
+              The external consent manager will provide the banner and preference controls after it is connected. Through those controls, you can reject analytics, grant it later, or withdraw it. Withdrawing analytics stops PostHog capture and clears its local identity and persistence where the SDK is active.
             </p>
-            <button class="button secondary" type="button" data-open-consent>
-              Open cookie settings
-            </button>
+            <p>
+              Until the external consent manager is connected, PostHog remains disabled and there is no Docs Forge cookie banner or analytics setting to manage.
+            </p>
             <p>
               For contact details already submitted, request access, correction, deletion, or withdrawal through a private contact method on the maintainer’s GitHub profile. If you withdraw product-update consent, the details may still be retained where needed to complete an active enquiry or meet applicable obligations.
             </p>
@@ -137,7 +140,7 @@
           </div>
           <div class="policy-copy">
             <p>
-              Browser consent preferences remain on the device until you clear site data or replace your choice. Contact retention must be configured and disclosed with the selected form processor before collection is enabled.
+              Once the external consent manager is connected, browser consent preferences may remain on the device until you clear site data or replace your choice. Contact retention must be configured and disclosed with the selected form processor before collection is enabled.
             </p>
             <p>
               Data is not sold. It may be handled by GitHub for hosting, by PostHog after analytics consent, and by the configured contact-form processor after that service is named and enabled. These providers may process data in countries other than your own under their terms and safeguards.
@@ -166,7 +169,6 @@
       <span>Docs Forge</span>
       <a href="./index.html">Homepage</a>
       <a href="./privacy.html" aria-current="page">Privacy</a>
-      <button class="footer-link" type="button" data-open-consent>Cookie settings</button>
       <a href="https://github.com/adhit-r/docs-forge">GitHub</a>
     </footer>
 

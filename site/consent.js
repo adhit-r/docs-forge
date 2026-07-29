@@ -2,7 +2,7 @@
   "use strict";
 
   var config = window.DOCS_FORGE_CONFIG || {};
-  var consentKey = "docs_forge_consent_v1";
+  var consentKey = "docs_forge_consent_v2";
   var ledgerKey = "docs_forge_consent_ledger_v1";
   var policyVersion = config.policyVersion || "2026-07-29";
   var posthogInitialized = false;
@@ -206,7 +206,8 @@
   function saveCookiePreference(analyticsAllowed, source) {
     var savedAt = new Date().toISOString();
     var state = {
-      schema: "docs-forge-cookie-preferences/1",
+      schema: "docs-forge-cookie-preferences/2",
+      manager: "external_cmp",
       necessary: true,
       analytics: Boolean(analyticsAllowed),
       policyVersion: policyVersion,
@@ -241,118 +242,40 @@
     return state;
   }
 
-  function renderConsentPanel() {
-    var panel = document.createElement("section");
-    panel.className = "consent-panel";
-    panel.setAttribute("aria-labelledby", "consent-title");
-    panel.setAttribute("data-consent-panel", "");
-    panel.innerHTML =
-      '<div class="consent-copy">' +
-      '<p class="eyebrow">Privacy choice</p>' +
-      '<h2 id="consent-title">Necessary storage only, unless you choose analytics.</h2>' +
-      '<p>We use local storage to remember this choice. PostHog analytics stays off until you allow it. Email and phone consent is handled separately in the contact form.</p>' +
-      '<a href="./privacy.html">Read the privacy policy</a>' +
-      "</div>" +
-      '<div class="consent-actions">' +
-      '<button class="button secondary" type="button" data-consent-reject>Only necessary</button>' +
-      '<button class="button secondary" type="button" data-consent-choose aria-expanded="false" aria-controls="consent-options">Choose</button>' +
-      '<button class="button primary" type="button" data-consent-accept>Accept analytics</button>' +
-      "</div>" +
-      '<div class="consent-options is-hidden" id="consent-options" data-consent-options>' +
-      '<label class="consent-option is-required">' +
-      '<input type="checkbox" checked disabled />' +
-      "<span><strong>Strictly necessary</strong><small>Remembers your privacy choice and keeps the site functioning. Always active.</small></span>" +
-      "</label>" +
-      '<label class="consent-option">' +
-      '<input type="checkbox" data-analytics-choice />' +
-      "<span><strong>Analytics</strong><small>Allows privacy-limited PostHog page-view measurement. No autocapture or session recording.</small></span>" +
-      "</label>" +
-      '<div class="consent-save">' +
-      '<button class="button primary" type="button" data-consent-save>Save choices</button>' +
-      "</div>" +
-      "</div>";
-
-    document.body.appendChild(panel);
-    return panel;
-  }
-
-  function setupConsentPanel() {
-    var panel = renderConsentPanel();
-    var options = panel.querySelector("[data-consent-options]");
-    var analyticsChoice = panel.querySelector("[data-analytics-choice]");
-    var chooseButton = panel.querySelector("[data-consent-choose]");
+  function setupConsentBridge() {
     var existing = currentConsent();
 
-    function hidePanel() {
-      panel.classList.add("is-hidden");
-    }
-
-    function openPanel(expand) {
-      var saved = currentConsent();
-      analyticsChoice.checked = Boolean(saved && saved.analytics);
-      panel.classList.remove("is-hidden");
-      options.classList.toggle("is-hidden", !expand);
-      chooseButton.setAttribute("aria-expanded", String(Boolean(expand)));
-      window.setTimeout(function () {
-        panel.querySelector("button").focus();
-      }, 0);
-    }
-
-    panel
-      .querySelector("[data-consent-accept]")
-      .addEventListener("click", function () {
-        saveCookiePreference(true, "cookie_banner");
-        hidePanel();
-      });
-
-    panel
-      .querySelector("[data-consent-reject]")
-      .addEventListener("click", function () {
-        saveCookiePreference(false, "cookie_banner");
-        hidePanel();
-      });
-
-    chooseButton.addEventListener("click", function () {
-      var willExpand = options.classList.contains("is-hidden");
-      options.classList.toggle("is-hidden", !willExpand);
-      chooseButton.setAttribute("aria-expanded", String(willExpand));
-      if (willExpand) {
-        analyticsChoice.focus();
-      }
-    });
-
-    panel
-      .querySelector("[data-consent-save]")
-      .addEventListener("click", function () {
-        saveCookiePreference(analyticsChoice.checked, "privacy_preferences");
-        hidePanel();
-      });
-
-    document.querySelectorAll("[data-open-consent]").forEach(function (button) {
-      button.addEventListener("click", function () {
-        openPanel(true);
-      });
-    });
-
-    if (existing && typeof existing.analytics === "boolean") {
-      hidePanel();
+    if (
+      existing &&
+      existing.manager === "external_cmp" &&
+      typeof existing.analytics === "boolean"
+    ) {
       applyAnalyticsPreference(existing.analytics);
-    } else {
-      openPanel(false);
     }
 
     window.docsForgeConsent = Object.freeze({
       getPreferences: currentConsent,
-      openPreferences: function () {
-        openPanel(true);
+      setConsent: function (choice) {
+        var detail = choice || {};
+        return saveCookiePreference(
+          Boolean(detail.analytics),
+          detail.source || "external_cmp"
+        );
       },
       savePreferences: function (analyticsAllowed) {
-        return saveCookiePreference(
-          Boolean(analyticsAllowed),
-          "consent_manager_adapter"
-        );
+        return saveCookiePreference(Boolean(analyticsAllowed), "external_cmp");
       }
     });
+
+    window.addEventListener("docs-forge:cmp-consent", function (event) {
+      var detail = event.detail || {};
+      saveCookiePreference(
+        Boolean(detail.analytics),
+        detail.source || "external_cmp_event"
+      );
+    });
+
+    window.dispatchEvent(new CustomEvent("docs-forge:consent-bridge-ready"));
   }
 
   function contactReceipt(purpose, granted) {
@@ -460,7 +383,7 @@
   }
 
   function start() {
-    setupConsentPanel();
+    setupConsentBridge();
     setupContactForm();
   }
 

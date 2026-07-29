@@ -17,20 +17,44 @@ Current release: `v0.3.0`
 
 ## Website Privacy Configuration
 
-The GitHub Pages site includes a privacy policy, a cookie-preference panel, a consent-gated PostHog adapter, and a contact form for email and phone.
+The GitHub Pages site includes a privacy policy, a headless consent bridge, consent-gated PostHog support, and a contact form for email and phone. Docs Forge does not render its own cookie banner. A separate consent manager owns the visitor-facing banner and passes analytics choices to the bridge.
 
 Production integrations are configured in `site/config.js`:
 
 - `formEndpoint`: HTTPS endpoint that accepts the form JSON payload. Contact submission stays disabled while this is empty.
 - `consentEndpoint`: Optional endpoint for device-scoped cookie consent receipts.
+- `consentMode`: `external`, because the banner and preference UI come from a separate consent manager.
 - `posthogKey`: Public PostHog project key. PostHog stays unloaded while this is empty or analytics consent has not been granted.
 - `posthogHost`: PostHog region host.
 - `policyVersion`: Version written into cookie and contact consent receipts.
 
 The PostHog adapter disables autocapture and session recording. It records page views only after analytics opt-in and does not identify form submitters or send form field values to PostHog.
 
-For a future consent-management platform, define `window.DOCS_FORGE_CMP.recordConsent(receipt)` before `consent.js` loads, or listen for:
+The external consent manager can pass its analytics result after `docs-forge:consent-bridge-ready`:
 
+```js
+window.docsForgeConsent.setConsent({
+  analytics: true,
+  source: "your_consent_manager"
+});
+```
+
+It can also dispatch an event:
+
+```js
+window.dispatchEvent(
+  new CustomEvent("docs-forge:cmp-consent", {
+    detail: {
+      analytics: false,
+      source: "your_consent_manager"
+    }
+  })
+);
+```
+
+To forward consent receipts into the external platform, define `window.DOCS_FORGE_CMP.recordConsent(receipt)` before `consent.js` loads, or listen for:
+
+- `docs-forge:consent-bridge-ready`
 - `docs-forge:consent-recorded`
 - `docs-forge:consent-changed`
 - `docs-forge:contact-consent-recorded`

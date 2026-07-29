@@ -146,7 +146,7 @@ The system is flat by default. A hard offset shadow on the terminal-style produc
 
 ### Navigation
 
-Sans-serif, compact, and structurally separated by a 1px rule. Privacy controls remain reachable in the footer at every viewport.
+Sans-serif, compact, and structurally separated by a 1px rule. The external consent manager must keep its privacy controls reachable at every viewport.
 
 ## Do's and Don'ts
 
