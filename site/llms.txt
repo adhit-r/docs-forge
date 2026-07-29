@@ -5,7 +5,7 @@
 Website: https://adhit-r.github.io/docs-forge/
 Repository: https://github.com/adhit-r/docs-forge
 Current release: v0.3.0
-Last updated: 2026-05-12
+Last updated: 2026-07-29
 License: MIT
 
 ## Install
@@ -110,6 +110,7 @@ Generate developer docs from this repository.
 - Machine-readable product facts: https://adhit-r.github.io/docs-forge/product.md
 - Machine-readable pricing: https://adhit-r.github.io/docs-forge/pricing.md
 - Machine-readable capabilities: https://adhit-r.github.io/docs-forge/capabilities.md
+- Privacy policy: https://adhit-r.github.io/docs-forge/privacy.html
 - README: https://github.com/adhit-r/docs-forge/blob/main/README.md
 - Codex plugin manifest: https://github.com/adhit-r/docs-forge/blob/main/plugins/docs-forge/.codex-plugin/plugin.json
 - Canonical skill: https://github.com/adhit-r/docs-forge/blob/main/plugins/docs-forge/skills/docs-forge/SKILL.md

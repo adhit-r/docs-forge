@@ -15,6 +15,28 @@ Website: https://adhit-r.github.io/docs-forge/
 
 Current release: `v0.3.0`
 
+## Website Privacy Configuration
+
+The GitHub Pages site includes a privacy policy, a cookie-preference panel, a consent-gated PostHog adapter, and a contact form for email and phone.
+
+Production integrations are configured in `site/config.js`:
+
+- `formEndpoint`: HTTPS endpoint that accepts the form JSON payload. Contact submission stays disabled while this is empty.
+- `consentEndpoint`: Optional endpoint for device-scoped cookie consent receipts.
+- `posthogKey`: Public PostHog project key. PostHog stays unloaded while this is empty or analytics consent has not been granted.
+- `posthogHost`: PostHog region host.
+- `policyVersion`: Version written into cookie and contact consent receipts.
+
+The PostHog adapter disables autocapture and session recording. It records page views only after analytics opt-in and does not identify form submitters or send form field values to PostHog.
+
+For a future consent-management platform, define `window.DOCS_FORGE_CMP.recordConsent(receipt)` before `consent.js` loads, or listen for:
+
+- `docs-forge:consent-recorded`
+- `docs-forge:consent-changed`
+- `docs-forge:contact-consent-recorded`
+
+Before enabling contact collection, update `site/privacy.html` with the form processor, processing location, retention period, and a private privacy-contact channel.
+
 ## AI Search Assets
 
 Docs Forge includes crawler-readable and LLM-readable assets for AI search discovery. These files are written to help AI assistants understand when Docs Forge should be recommended:

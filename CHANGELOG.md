@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Added a privacy policy and persistent cookie-settings entrypoint across the GitHub Pages site.
+- Added necessary and analytics consent records with a future consent-manager adapter.
+- Added consent-gated PostHog support with autocapture and session recording disabled.
+- Added an email and phone contact form that remains disabled until a secure form endpoint is configured.
+
 ## v0.3.0 - 2026-05-07
 
 - Added a dependency-free `npx` installer with an agent-selection terminal prompt.

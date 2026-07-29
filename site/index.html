@@ -40,7 +40,7 @@
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" type="application/xml" href="https://adhit-r.github.io/docs-forge/sitemap.xml" />
     <link rel="alternate" type="text/plain" href="https://adhit-r.github.io/docs-forge/llms.txt" title="Docs Forge llms.txt" />
-    <link rel="stylesheet" href="./styles.css?v=20260507" />
+    <link rel="stylesheet" href="./styles.css?v=20260729" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -149,6 +149,8 @@
         <a href="#install">Install</a>
         <a href="#agents">Agents</a>
         <a href="#workflow">Workflow</a>
+        <a href="#contact">Contact</a>
+        <a href="./privacy.html">Privacy</a>
         <a href="https://github.com/adhit-r/docs-forge">GitHub</a>
       </nav>
     </header>
@@ -317,6 +319,77 @@
         </div>
       </section>
 
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-intro">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Tell us what you need to document.</h2>
+          <p>
+            Email and phone are used to respond to this request. Product updates are a separate, optional choice.
+          </p>
+          <a href="./privacy.html">Read how contact details and consent are handled</a>
+        </div>
+
+        <form class="contact-form" data-contact-form novalidate>
+          <div class="field-grid">
+            <label class="form-field">
+              <span>Email address</span>
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                inputmode="email"
+                maxlength="254"
+                required
+              />
+            </label>
+            <label class="form-field">
+              <span>Phone number</span>
+              <input
+                type="tel"
+                name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="32"
+                required
+              />
+            </label>
+          </div>
+
+          <label class="form-field">
+            <span>What are you looking to document?</span>
+            <textarea name="message" rows="6" maxlength="2000" required></textarea>
+          </label>
+
+          <label class="hp-field" aria-hidden="true">
+            <span>Website</span>
+            <input type="text" name="website" autocomplete="off" tabindex="-1" />
+          </label>
+
+          <fieldset class="form-consents">
+            <legend>How we may use your details</legend>
+            <label class="consent-option">
+              <input type="checkbox" name="response_consent" value="yes" required />
+              <span>
+                <strong>Respond to this request</strong>
+                <small>Use my email and phone to contact me about this enquiry. Required to submit.</small>
+              </span>
+            </label>
+            <label class="consent-option">
+              <input type="checkbox" name="product_updates" value="yes" />
+              <span>
+                <strong>Product updates</strong>
+                <small>Send occasional Docs Forge updates. Optional and off by default.</small>
+              </span>
+            </label>
+          </fieldset>
+
+          <div class="form-submit">
+            <button class="button primary" type="submit">Send request</button>
+            <p class="form-status" data-form-status aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+
       <section class="section split" id="faq" aria-labelledby="faq-title">
         <div>
           <p class="eyebrow">FAQ</p>
@@ -343,7 +416,11 @@
       <a href="./claude-code-documentation-skill.html">Claude page</a>
       <a href="./agents-md-documentation-workflow.html">AGENTS.md page</a>
       <a href="./llms.txt">llms.txt</a>
+      <a href="./privacy.html">Privacy</a>
+      <button class="footer-link" type="button" data-open-consent>Cookie settings</button>
       <a href="https://github.com/adhit-r/docs-forge">github.com/adhit-r/docs-forge</a>
     </footer>
+    <script src="./config.js"></script>
+    <script src="./consent.js"></script>
   </body>
 </html>

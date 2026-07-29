@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-29T00:00:00+05:30",
+  "title": "Design System: Docs Forge",
+  "extensions": {
+    "colorMeta": {
+      "field-ink": {
+        "role": "primary",
+        "displayName": "Field Ink",
+        "canonical": "#121712",
+        "tonalRamp": ["#121712", "#242d25", "#3f4c42", "#677469", "#929e94", "#bdc7bd", "#dbe3d9", "#f8fbf4"]
+      },
+      "graph-paper": {
+        "role": "neutral",
+        "displayName": "Graph Paper",
+        "canonical": "#e8efe5",
+        "tonalRamp": ["#263027", "#435044", "#637064", "#859186", "#a8b3a8", "#c9d2c8", "#e8efe5", "#f8fbf4"]
+      },
+      "fired-clay": {
+        "role": "primary",
+        "displayName": "Fired Clay",
+        "canonical": "#a34524",
+        "tonalRamp": ["#351006", "#68240f", "#823419", "#a34524", "#bf6544", "#d58a6e", "#e9b8a5", "#f7e4db"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Homepage identity only."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Technical explanation and long-form reading."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Controls, navigation, and operational metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "panel-offset",
+        "value": "14px 14px 0 #1e2a21",
+        "purpose": "Structural lift for one signature workflow panel."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Short state transitions without decorative motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack",
+        "value": "880px"
+      },
+      {
+        "name": "mobile",
+        "value": "520px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Square high-confidence action with visible construction.",
+      "html": "<button class=\"ds-btn-primary\">Save choice</button>",
+      "css": ".ds-btn-primary { min-height:46px; padding:0 18px; border:2px solid #1e2a21; border-radius:0; background:#121712; color:#f8fbf4; font:780 .88rem ui-sans-serif,system-ui,sans-serif; cursor:pointer; } .ds-btn-primary:hover { background:#242d25; } .ds-btn-primary:focus-visible { outline:3px solid #a9881e; outline-offset:4px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "description": "Square field for concise, explicit data collection.",
+      "html": "<label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"you@example.com\"></label>",
+      "css": ".ds-field { display:grid; gap:8px; color:#121712; font:780 .88rem ui-sans-serif,system-ui,sans-serif; } .ds-field input { min-height:48px; padding:12px 14px; border:2px solid #1e2a21; border-radius:0; background:#f8fbf4; color:#121712; font:400 1rem Charter,Cambria,serif; } .ds-field input:focus-visible { outline:3px solid #a9881e; outline-offset:3px; }"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "description": "Compact technical navigation with direct text links.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#install\">Install</a><a href=\"#workflow\">Workflow</a><a href=\"#privacy\">Privacy</a></nav>",
+      "css": ".ds-nav { display:flex; gap:24px; color:#121712; font:680 .88rem ui-sans-serif,system-ui,sans-serif; } .ds-nav a { color:inherit; text-decoration:none; } .ds-nav a:hover { text-decoration:underline; text-decoration-thickness:.08em; text-underline-offset:.2em; } .ds-nav a:focus-visible { outline:3px solid #a9881e; outline-offset:4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Repository Field Manual",
+    "overview": "Docs Forge uses the visual language of a durable technical handbook laid over graph paper. Serif editorial weight gives explanations authority, while sans-serif labels and monospace commands identify actions and machine-readable details.",
+    "keyCharacteristics": [
+      "Square bordered controls",
+      "Sage paper surfaces",
+      "Large orientation type",
+      "Structural rather than decorative depth"
+    ],
+    "rules": [
+      {
+        "name": "The Printed Limit Rule",
+        "body": "Accent colors mark meaning. They never become decorative gradients.",
+        "section": "colors"
+      },
+      {
+        "name": "The Voice Switch Rule",
+        "body": "Serif explains. Sans labels actions. Monospace shows commands and machine output.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do show commands and workflow state as inspectable technical material.",
+      "Do keep optional tracking and communications choices explicit and unticked."
+    ],
+    "donts": [
+      "Don't use generic AI-tool marketing.",
+      "Don't use purple gradients.",
+      "Don't use glassmorphism."
+    ]
+  }
+}
