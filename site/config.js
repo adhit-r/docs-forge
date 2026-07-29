@@ -3,6 +3,7 @@ window.DOCS_FORGE_CONFIG = Object.freeze({
   consentMode: "external",
   formEndpoint: "",
   consentEndpoint: "",
-  posthogKey: "",
-  posthogHost: "https://us.i.posthog.com"
+  posthogKey: "phc_yUQIhLlelRnGs4APUFQbb7GYlMIwfdYqJ6IHtnuydTW",
+  posthogHost: "https://us.i.posthog.com",
+  posthogDefaults: "2026-05-30"
 });

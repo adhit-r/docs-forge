@@ -170,6 +170,7 @@
     installPostHogStub();
     window.posthog.init(config.posthogKey, {
       api_host: config.posthogHost,
+      defaults: config.posthogDefaults || "2026-05-30",
       autocapture: false,
       capture_pageview: true,
       capture_pageleave: false,
