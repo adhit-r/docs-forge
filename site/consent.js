@@ -177,6 +177,8 @@
       capture_pageview: true,
       capture_pageleave: false,
       disable_session_recording: true,
+      disable_surveys: true,
+      advanced_disable_flags: true,
       advanced_disable_feature_flags_on_first_load: true,
       person_profiles: "identified_only",
       persistence: "localStorage+cookie"
@@ -257,7 +259,7 @@
     ) {
       applyAnalyticsPreference(existing.analytics);
     } else if (config.consentMode === "immediate") {
-      enableAnalytics(false);
+      enableAnalytics(true);
     }
 
     window.docsForgeConsent = Object.freeze({
