@@ -1,6 +1,6 @@
 window.DOCS_FORGE_CONFIG = Object.freeze({
-  policyVersion: "2026-07-29",
-  consentMode: "external",
+  policyVersion: "2026-07-30",
+  consentMode: "immediate",
   formEndpoint: "",
   consentEndpoint: "",
   posthogKey: "phc_yUQIhLlelRnGs4APUFQbb7GYlMIwfdYqJ6IHtnuydTW",

@@ -34,7 +34,7 @@
         <p class="lede">
           This notice separates hosting data, optional site analytics, and the personal details you choose to submit through the contact form.
         </p>
-        <p class="policy-meta">Effective and last updated: 29 July 2026 · Policy version 2026-07-29</p>
+        <p class="policy-meta">Effective and last updated: 30 July 2026 · Policy version 2026-07-30</p>
       </header>
 
       <article class="policy">
@@ -69,13 +69,13 @@
 
             <h3>Cookie and analytics preferences</h3>
             <p>
-              The site provides a headless consent bridge for an external consent manager. Docs Forge does not display its own cookie banner. Until that manager is connected and passes a choice to the bridge, no analytics decision is stored and PostHog remains off.
+              PostHog currently initializes when a page loads. It uses first-party browser storage through a local-storage-and-cookie persistence mode to maintain an anonymous identifier and measure page views. Docs Forge does not display its own cookie banner.
             </p>
             <p>
-              After the consent manager passes a choice, the bridge can store it in local storage and keep a small receipt history with the purpose, choice, time, collection point, and policy version. This lets the selected consent manager remain the visitor-facing source of truth.
+              The site also provides a headless consent bridge for a future external consent manager. Once connected, that manager can become the visitor-facing source of truth, pass analytics choices to PostHog, and store a receipt history with the purpose, choice, time, collection point, and policy version.
             </p>
             <p>
-              PostHog analytics is optional. It is not loaded until you grant analytics consent and a PostHog project key has been configured. The integration disables autocapture and session recording. It measures page views and a successful form-submission event without sending the form’s email, phone, or message to PostHog.
+              The PostHog integration disables autocapture and session recording. It measures page views and a successful form-submission event without sending the form’s email, phone, or message to PostHog.
             </p>
 
             <h3>Contact form</h3>
@@ -96,12 +96,12 @@
           <div class="policy-copy">
             <div class="purpose-list" role="list" aria-label="Data processing purposes">
               <div role="listitem">
-                <strong>Strictly necessary storage</strong>
-                <span>After the external consent manager records a choice, remember it and maintain the receipt on your device.</span>
+                <strong>Consent preference storage</strong>
+                <span>After the external consent manager is connected, remember its consent receipt on your device.</span>
               </div>
               <div role="listitem">
                 <strong>Site analytics</strong>
-                <span>Understand aggregate page use through PostHog, only after opt-in.</span>
+                <span>Understand aggregate page use through PostHog page-view tracking.</span>
               </div>
               <div role="listitem">
                 <strong>Respond to an enquiry</strong>
@@ -122,10 +122,10 @@
           </div>
           <div class="policy-copy">
             <p>
-              The external consent manager will provide the banner and preference controls after it is connected. Through those controls, you can reject analytics, grant it later, or withdraw it. Withdrawing analytics stops PostHog capture and clears its local identity and persistence where the SDK is active.
+              No consent-manager banner is currently connected. Until one is added, you can block or clear this site’s browser storage through your browser settings.
             </p>
             <p>
-              Until the external consent manager is connected, PostHog remains disabled and there is no Docs Forge cookie banner or analytics setting to manage.
+              After the external consent manager is connected, its controls can reject analytics, grant it later, or withdraw it. Withdrawing analytics stops PostHog capture and clears its local identity and persistence where the SDK is active.
             </p>
             <p>
               For contact details already submitted, request access, correction, deletion, or withdrawal through a private contact method on the maintainer’s GitHub profile. If you withdraw product-update consent, the details may still be retained where needed to complete an active enquiry or meet applicable obligations.
@@ -140,10 +140,10 @@
           </div>
           <div class="policy-copy">
             <p>
-              Once the external consent manager is connected, browser consent preferences may remain on the device until you clear site data or replace your choice. Contact retention must be configured and disclosed with the selected form processor before collection is enabled.
+              PostHog’s browser storage remains on the device until it expires, you clear site data, or a connected consent manager withdraws analytics. Contact retention must be configured and disclosed with the selected form processor before collection is enabled.
             </p>
             <p>
-              Data is not sold. It may be handled by GitHub for hosting, by PostHog after analytics consent, and by the configured contact-form processor after that service is named and enabled. These providers may process data in countries other than your own under their terms and safeguards.
+              Data is not sold. It may be handled by GitHub for hosting, by PostHog for page-view analytics, and by the configured contact-form processor after that service is named and enabled. These providers may process data in countries other than your own under their terms and safeguards.
             </p>
           </div>
         </section>

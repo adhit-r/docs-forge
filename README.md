@@ -17,18 +17,18 @@ Current release: `v0.3.0`
 
 ## Website Privacy Configuration
 
-The GitHub Pages site includes a privacy policy, a headless consent bridge, consent-gated PostHog support, and a contact form for email and phone. Docs Forge does not render its own cookie banner. A separate consent manager owns the visitor-facing banner and passes analytics choices to the bridge.
+The GitHub Pages site includes a privacy policy, PostHog page-view tracking, a headless consent bridge, and a contact form for email and phone. Docs Forge does not render its own cookie banner. PostHog currently initializes on page load; a separate consent manager can take control of analytics choices later through the bridge.
 
 Production integrations are configured in `site/config.js`:
 
 - `formEndpoint`: HTTPS endpoint that accepts the form JSON payload. Contact submission stays disabled while this is empty.
 - `consentEndpoint`: Optional endpoint for device-scoped cookie consent receipts.
-- `consentMode`: `external`, because the banner and preference UI come from a separate consent manager.
-- `posthogKey`: Public PostHog project key. PostHog stays unloaded while this is empty or analytics consent has not been granted.
+- `consentMode`: `immediate` initializes PostHog on page load. Change it to `external` when the consent manager is connected.
+- `posthogKey`: Public PostHog project key.
 - `posthogHost`: PostHog region host.
 - `policyVersion`: Version written into cookie and contact consent receipts.
 
-The PostHog adapter disables autocapture and session recording. It records page views only after analytics opt-in and does not identify form submitters or send form field values to PostHog.
+The PostHog adapter disables autocapture and session recording. In the current immediate mode it records page views on load, does not identify form submitters, and does not send form field values to PostHog.
 
 The external consent manager can pass its analytics result after `docs-forge:consent-bridge-ready`:
 

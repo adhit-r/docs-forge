@@ -157,13 +157,15 @@
     })(document, window.posthog || []);
   }
 
-  function enableAnalytics() {
+  function enableAnalytics(recordExplicitOptIn) {
     if (!config.posthogKey || !config.posthogHost) {
       return;
     }
 
     if (posthogInitialized && window.posthog) {
-      window.posthog.opt_in_capturing();
+      if (recordExplicitOptIn) {
+        window.posthog.opt_in_capturing();
+      }
       return;
     }
 
@@ -179,7 +181,9 @@
       person_profiles: "identified_only",
       persistence: "localStorage+cookie"
     });
-    window.posthog.opt_in_capturing();
+    if (recordExplicitOptIn) {
+      window.posthog.opt_in_capturing();
+    }
     posthogInitialized = true;
   }
 
@@ -198,7 +202,7 @@
 
   function applyAnalyticsPreference(allowed) {
     if (allowed) {
-      enableAnalytics();
+      enableAnalytics(true);
     } else {
       disableAnalytics();
     }
@@ -252,6 +256,8 @@
       typeof existing.analytics === "boolean"
     ) {
       applyAnalyticsPreference(existing.analytics);
+    } else if (config.consentMode === "immediate") {
+      enableAnalytics(false);
     }
 
     window.docsForgeConsent = Object.freeze({
