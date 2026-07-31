@@ -122,7 +122,7 @@
         script.type = "text/javascript";
         script.crossOrigin = "anonymous";
         script.async = true;
-        script.src = options.api_host + "/static/array.js";
+        script.src = (options.asset_host || options.api_host) + "/static/array.js";
         firstScript = documentObject.getElementsByTagName("script")[0];
         firstScript.parentNode.insertBefore(script, firstScript);
 
@@ -172,6 +172,7 @@
     installPostHogStub();
     window.posthog.init(config.posthogKey, {
       api_host: config.posthogHost,
+      asset_host: config.posthogAssetHost,
       defaults: config.posthogDefaults || "2026-05-30",
       autocapture: false,
       capture_pageview: true,

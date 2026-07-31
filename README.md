@@ -26,6 +26,7 @@ Production integrations are configured in `site/config.js`:
 - `consentMode`: `immediate` initializes PostHog on page load. Change it to `external` when the consent manager is connected.
 - `posthogKey`: Public PostHog project key.
 - `posthogHost`: PostHog region host.
+- `posthogAssetHost`: Regional PostHog host used to load the browser SDK.
 - `policyVersion`: Version written into cookie and contact consent receipts.
 
 The PostHog adapter disables autocapture and session recording. In the current immediate mode it records page views on load, does not identify form submitters, and does not send form field values to PostHog.
